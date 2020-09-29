@@ -14,6 +14,7 @@ protocol FeedsViperView: ViperView {
     
     func setFeeds(_ feeds: [Feed])
     func showError(_ error: Error)
+    func showLoadingFeedback(show: Bool)
 }
 
 class FeedsView: UIView, FeedsViperView {
@@ -21,6 +22,7 @@ class FeedsView: UIView, FeedsViperView {
     // MARK: - Properties
     private lazy var presenter: FeedsPresenter<FeedsView, FeedsInteractor, AppRouter> = FeedsPresenter(view: self, interactor: FeedsInteractor(client: URLSessionClient()), router: AppRouter())
     private var tableView: UITableView = UITableView(frame: .zero)
+    private var activityIndicatorView: UIActivityIndicatorView = UIActivityIndicatorView(frame: .zero)
     
     struct TableViewCells {
         static let feed = "FeedTableViewCell"
@@ -29,6 +31,7 @@ class FeedsView: UIView, FeedsViperView {
     // MARK: - Initializers
     init() {
         super.init(frame: .zero)
+        setupActivityIndicator()
         setupTableView()
         presenter.getFeeds()
     }
@@ -38,11 +41,22 @@ class FeedsView: UIView, FeedsViperView {
     }
     
     // MARK: - Private
+    private func setupActivityIndicator() {
+        addSubview(activityIndicatorView)
+        activityIndicatorView.tintColor = .black
+        activityIndicatorView.hidesWhenStopped = true
+        activityIndicatorView.style = .large
+        activityIndicatorView.translatesAutoresizingMaskIntoConstraints = false
+        activityIndicatorView.constraintToSize(CGSize(width: 30, height: 30))
+        activityIndicatorView.centerInLayout(inParentView: self)
+    }
+    
     private func setupTableView() {
         addSubview(tableView)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.expandTofitLayoutFromView(self)
         tableView.dataSource = self
+        tableView.isHidden = true
     }
     
     // MARK: - FeedsViperView
@@ -55,6 +69,15 @@ class FeedsView: UIView, FeedsViperView {
     
     func showError(_ error: Error) {
         print(error)
+    }
+    
+    func showLoadingFeedback(show: Bool) {
+        if !show {
+            activityIndicatorView.stopAnimating()
+            tableView.isHidden = false
+        } else {
+            activityIndicatorView.startAnimating()
+        }
     }
     
 }

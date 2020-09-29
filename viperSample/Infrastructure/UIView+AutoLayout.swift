@@ -66,4 +66,9 @@ extension UIView {
             }
         }
     }
+    
+    func centerInLayout(inParentView view: UIView) {
+        centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+    }
 }
