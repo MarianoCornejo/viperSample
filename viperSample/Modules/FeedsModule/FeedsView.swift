@@ -54,6 +54,8 @@ class FeedsView: UIView, FeedsViperView {
     private func setupTableView() {
         addSubview(tableView)
         tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.estimatedRowHeight = 300
+        tableView.rowHeight = UITableView.automaticDimension
         tableView.expandTofitLayoutFromView(self)
         tableView.dataSource = self
         tableView.isHidden = true

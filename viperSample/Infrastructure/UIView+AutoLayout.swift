@@ -20,30 +20,33 @@ enum LayoutSides {
     case right(margin: CGFloat)
     case top(margin: CGFloat)
     case bottom(margin: CGFloat)
+    case all(margin: CGFloat)
 }
 
 extension UIView {
     func expandTofitLayoutFromView(_ parentView: UIView) {
-        leadingAnchor.constraint(equalTo: parentView.leadingAnchor).isActive = true
-        trailingAnchor.constraint(equalTo: parentView.trailingAnchor).isActive = true
-        topAnchor.constraint(equalTo: parentView.topAnchor).isActive = true
-        bottomAnchor.constraint(equalTo: parentView.bottomAnchor).isActive = true
+        let guide = parentView.layoutMarginsGuide
+        leadingAnchor.constraint(equalTo: guide.leadingAnchor).isActive = true
+        trailingAnchor.constraint(equalTo: guide.trailingAnchor).isActive = true
+        topAnchor.constraint(equalTo: guide.topAnchor).isActive = true
+        bottomAnchor.constraint(equalTo: guide.bottomAnchor).isActive = true
     }
     
     func pinToCorner(_ layoutCorner: LayoutCorner, inParentView view: UIView) {
+        let guide = view.layoutMarginsGuide
         switch layoutCorner {
         case .topLeft(let leftMargin, let topMargin):
-            leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: leftMargin).isActive = true
-            topAnchor.constraint(equalTo: view.topAnchor, constant: topMargin).isActive = true
+            leadingAnchor.constraint(equalTo: guide.leadingAnchor, constant: leftMargin).isActive = true
+            topAnchor.constraint(equalTo: guide.topAnchor, constant: topMargin).isActive = true
         case .topRight(let rightMargin, let topMargin):
-            trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: rightMargin).isActive = true
-            topAnchor.constraint(equalTo: view.topAnchor, constant: topMargin).isActive = true
+            trailingAnchor.constraint(equalTo: guide.trailingAnchor, constant: rightMargin).isActive = true
+            topAnchor.constraint(equalTo: guide.topAnchor, constant: topMargin).isActive = true
         case .bottomLeft(let leftMargin, let bottomMargin):
-            leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: leftMargin).isActive = true
-            bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: bottomMargin).isActive = true
+            leadingAnchor.constraint(equalTo: guide.leadingAnchor, constant: leftMargin).isActive = true
+            bottomAnchor.constraint(equalTo: guide.bottomAnchor, constant: bottomMargin).isActive = true
         case .bottomRight(let rightMargin, let bottomMargin):
-            trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: rightMargin).isActive = true
-            bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: bottomMargin).isActive = true
+            trailingAnchor.constraint(equalTo: guide.trailingAnchor, constant: rightMargin).isActive = true
+            bottomAnchor.constraint(equalTo: guide.bottomAnchor, constant: bottomMargin).isActive = true
         }
     }
     
@@ -53,22 +56,29 @@ extension UIView {
     }
     
     func expandToSides(_ sides: [LayoutSides], inParentView view: UIView) {
+        let guide = view.layoutMarginsGuide
         for side in sides {
             switch side {
             case .left(let margin):
-                leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: margin).isActive = true
+                leadingAnchor.constraint(equalTo: guide.leadingAnchor, constant: margin).isActive = true
             case .right(let margin):
-                trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: margin).isActive = true
+                trailingAnchor.constraint(equalTo: guide.trailingAnchor, constant: margin).isActive = true
             case .top(let margin):
-                topAnchor.constraint(equalTo: view.topAnchor, constant: margin).isActive = true
+                topAnchor.constraint(equalTo: guide.topAnchor, constant: margin).isActive = true
             case .bottom(let margin):
-                bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: margin).isActive = true
+                bottomAnchor.constraint(equalTo: guide.bottomAnchor, constant: margin).isActive = true
+            case .all(let margin):
+                leadingAnchor.constraint(equalTo: guide.leadingAnchor, constant: margin).isActive = true
+                trailingAnchor.constraint(equalTo: guide.trailingAnchor, constant: margin).isActive = true
+                topAnchor.constraint(equalTo: guide.topAnchor, constant: margin).isActive = true
+                bottomAnchor.constraint(equalTo: guide.bottomAnchor, constant: margin).isActive = true
             }
         }
     }
     
     func centerInLayout(inParentView view: UIView) {
-        centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        let guide = view.layoutMarginsGuide
+        centerXAnchor.constraint(equalTo: guide.centerXAnchor).isActive = true
+        centerYAnchor.constraint(equalTo: guide.centerYAnchor).isActive = true
     }
 }
