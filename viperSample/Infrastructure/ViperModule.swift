@@ -138,7 +138,7 @@ class ViperController<V: ViperView & UIView>: UIViewController, ViperModule {
     override func loadView() {
         super.loadView()
         self.view = viperView
-        self.view.backgroundColor = .white
+        self.view.backgroundColor = .black
     }
     
 }

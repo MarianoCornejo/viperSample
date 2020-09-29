@@ -34,6 +34,7 @@ class FeedsView: UIView, FeedsViperView {
     // MARK: - Initializers
     init() {
         super.init(frame: .zero)
+        backgroundColor = .black
         setupActivityIndicator()
         setupTableView()
         setupRefreshControll()
@@ -47,7 +48,7 @@ class FeedsView: UIView, FeedsViperView {
     // MARK: - Private
     private func setupActivityIndicator() {
         addSubview(activityIndicatorView)
-        activityIndicatorView.tintColor = .black
+        activityIndicatorView.tintColor = .white
         activityIndicatorView.hidesWhenStopped = true
         activityIndicatorView.style = .large
         activityIndicatorView.translatesAutoresizingMaskIntoConstraints = false
@@ -61,12 +62,14 @@ class FeedsView: UIView, FeedsViperView {
         tableView.estimatedRowHeight = 300
         tableView.rowHeight = UITableView.automaticDimension
         tableView.expandTofitLayoutFromView(self)
+        tableView.backgroundColor = .black
         tableView.dataSource = self
         tableView.delegate = self
         tableView.isHidden = true
     }
     
     private func setupRefreshControll() {
+        refreshControl.tintColor = .white
         refreshControl.addTarget(self, action: #selector(refreshFeeds), for: .valueChanged)
         tableView.refreshControl = refreshControl
     }

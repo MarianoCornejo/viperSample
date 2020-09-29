@@ -17,6 +17,6 @@ class FeedsViewController: ViperController<FeedsView> {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        title = "Reddit posts"
     }
 }

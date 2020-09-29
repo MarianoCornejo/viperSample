@@ -13,7 +13,7 @@ class LoadingTableViewCell: UITableViewCell {
     private lazy var activityIndicatorView: UIActivityIndicatorView = {
         let indicator = UIActivityIndicatorView()
         indicator.style = .medium
-        indicator.tintColor = .black
+        indicator.tintColor = .white
         indicator.startAnimating()
         indicator.translatesAutoresizingMaskIntoConstraints = false
         return indicator
@@ -31,6 +31,7 @@ class LoadingTableViewCell: UITableViewCell {
     
     //MARK: - Private
     private func setupView() {
+        backgroundColor = .black
         contentView.addSubview(activityIndicatorView)
         activityIndicatorView.centerInLayout(inParentView: contentView)
 //        activityIndicatorView.constraintToSize(CGSize(width: 30, height: 30))
@@ -43,7 +44,7 @@ class FeedTableViewCell: UITableViewCell {
     //MARK: - Properties
     private lazy var thumbnailImageView: UIImageView = {
         let iv = UIImageView()
-        iv.backgroundColor = .black
+        iv.backgroundColor = .white
         iv.translatesAutoresizingMaskIntoConstraints = false
         return iv
     }()
@@ -51,20 +52,21 @@ class FeedTableViewCell: UITableViewCell {
         let lb = UILabel()
         lb.translatesAutoresizingMaskIntoConstraints = false
         lb.font = UIFont.systemFont(ofSize: 14, weight: .regular)
-        lb.textColor = .gray
+        lb.textColor = .white
         return lb
     }()
     private var entryDateLabel: UILabel = {
         let lb = UILabel()
         lb.translatesAutoresizingMaskIntoConstraints = false
         lb.font = UIFont.systemFont(ofSize: 14, weight: .regular)
-        lb.textColor = .gray
+        lb.textColor = .white
         return lb
     }()
     private var titleLabel: UILabel = {
         let lb = UILabel()
         lb.translatesAutoresizingMaskIntoConstraints = false
         lb.font = UIFont.systemFont(ofSize: 17, weight: .medium)
+        lb.textColor  = .white
         lb.numberOfLines = 0
         return lb
     }()
@@ -72,7 +74,7 @@ class FeedTableViewCell: UITableViewCell {
         let lb = UILabel()
         lb.translatesAutoresizingMaskIntoConstraints = false
         lb.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
-        lb.textColor = .gray
+        lb.textColor = .orange
         return lb
     }()
     private var readStatusLabel: UILabel = UILabel()
@@ -98,6 +100,7 @@ class FeedTableViewCell: UITableViewCell {
     
     //MARK: - Private
     private func setupView() {
+        backgroundColor = .black
         contentView.addSubview(thumbnailImageView)
         contentView.addSubview(authorLabel)
         contentView.addSubview(entryDateLabel)

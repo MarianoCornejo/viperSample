@@ -18,9 +18,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let _ = (scene as? UIWindowScene) else { return }
+        let navBarAppearance = UINavigationBarAppearance()
+        navBarAppearance.configureWithOpaqueBackground()
+        navBarAppearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+        navBarAppearance.backgroundColor = .black
+        
         let vc = FeedsViewController()
         vc.attach(view: FeedsView())
-        window?.rootViewController = vc
+        let nc = UINavigationController(rootViewController: vc)
+        nc.navigationBar.standardAppearance = navBarAppearance
+        nc.navigationBar.scrollEdgeAppearance = navBarAppearance
+        window?.rootViewController = nc
         window?.makeKeyAndVisible()
     }
 
