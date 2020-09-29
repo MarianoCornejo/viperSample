@@ -56,15 +56,55 @@
 		BDB90AA0252350D1006D2D8A /* viperSample */ = {
 			isa = PBXGroup;
 			children = (
-				BDB90AA1252350D1006D2D8A /* AppDelegate.swift */,
-				BDB90AA3252350D1006D2D8A /* SceneDelegate.swift */,
-				BDB90AA5252350D1006D2D8A /* ViewController.swift */,
+				BDB90AB5252352CE006D2D8A /* AppAndSceneDelegate */,
+				BDB90AB725235302006D2D8A /* Infrastructure */,
 				BDB90AA7252350D1006D2D8A /* Main.storyboard */,
-				BDB90AAA252350D6006D2D8A /* Assets.xcassets */,
-				BDB90AAC252350D6006D2D8A /* LaunchScreen.storyboard */,
-				BDB90AAF252350D7006D2D8A /* Info.plist */,
+				BDB90AB6252352F9006D2D8A /* Modules */,
+				BDB90AB825235319006D2D8A /* Resources */,
+				BDB90AB92523532F006D2D8A /* Supporting files */,
 			);
 			path = viperSample;
+			sourceTree = "<group>";
+		};
+		BDB90AB5252352CE006D2D8A /* AppAndSceneDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				BDB90AA1252350D1006D2D8A /* AppDelegate.swift */,
+				BDB90AA3252350D1006D2D8A /* SceneDelegate.swift */,
+			);
+			path = AppAndSceneDelegate;
+			sourceTree = "<group>";
+		};
+		BDB90AB6252352F9006D2D8A /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				BDB90AA5252350D1006D2D8A /* ViewController.swift */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		BDB90AB725235302006D2D8A /* Infrastructure */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Infrastructure;
+			sourceTree = "<group>";
+		};
+		BDB90AB825235319006D2D8A /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				BDB90AAA252350D6006D2D8A /* Assets.xcassets */,
+				BDB90AAC252350D6006D2D8A /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		BDB90AB92523532F006D2D8A /* Supporting files */ = {
+			isa = PBXGroup;
+			children = (
+				BDB90AAF252350D7006D2D8A /* Info.plist */,
+			);
+			name = "Supporting files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
