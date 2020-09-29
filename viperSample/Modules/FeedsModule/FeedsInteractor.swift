@@ -19,12 +19,13 @@ class FeedsInteractor: NetworkInteractor {
     }
     
     // MARK: - Properties
-    func getFeeds(completion: @escaping (Result<FeedsResponse, Error>) -> Void) {
+    func getFeeds(completion: @escaping (Result<[Feed], Error>) -> Void) {
         let feedsEndpoint = FeedsEndpoint.feeds
         callToEndpoint(feedsEndpoint) { (result: Result<FeedsResponse, Error>) in
             switch result {
             case .success(let parsedFeedsResponse):
-                completion(.success(parsedFeedsResponse))
+                let feeds = parsedFeedsResponse.data.children.map({ Feed(childData: $0.data) })
+                completion(.success(feeds))
             case .failure(let error):
                 completion(.failure(error))
             }

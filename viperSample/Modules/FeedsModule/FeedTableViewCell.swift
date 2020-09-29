@@ -29,6 +29,11 @@ class FeedTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Internal
+    func setupCell(feed: Feed) {
+        authorLabel.text = feed.author
+    }
+    
     //MARK: - Private
     private func setupView() {
         addSubview(thumbnailImageView)

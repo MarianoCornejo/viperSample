@@ -21,6 +21,7 @@
 		BDB90ACA25235C3B006D2D8A /* FeedsEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB90AC925235C3B006D2D8A /* FeedsEndpoint.swift */; };
 		BDB90ACD25236369006D2D8A /* FeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB90ACC25236369006D2D8A /* FeedTableViewCell.swift */; };
 		BDB90ACF252365E6006D2D8A /* UIView+AutoLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB90ACE252365E6006D2D8A /* UIView+AutoLayout.swift */; };
+		BDB90AD125236E32006D2D8A /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB90AD025236E32006D2D8A /* Feed.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		BDB90AC925235C3B006D2D8A /* FeedsEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedsEndpoint.swift; sourceTree = "<group>"; };
 		BDB90ACC25236369006D2D8A /* FeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTableViewCell.swift; sourceTree = "<group>"; };
 		BDB90ACE252365E6006D2D8A /* UIView+AutoLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+AutoLayout.swift"; sourceTree = "<group>"; };
+		BDB90AD025236E32006D2D8A /* Feed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +136,7 @@
 				BDB90AC3252356FB006D2D8A /* FeedsPresenter.swift */,
 				BDB90AC52523571B006D2D8A /* FeedsInteractor.swift */,
 				BDB90ACC25236369006D2D8A /* FeedTableViewCell.swift */,
+				BDB90AD025236E32006D2D8A /* Feed.swift */,
 			);
 			path = FeedsModule;
 			sourceTree = "<group>";
@@ -219,6 +222,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BDB90AC4252356FB006D2D8A /* FeedsPresenter.swift in Sources */,
+				BDB90AD125236E32006D2D8A /* Feed.swift in Sources */,
 				BDB90AC62523571B006D2D8A /* FeedsInteractor.swift in Sources */,
 				BDB90ABB252353C9006D2D8A /* ViperModule.swift in Sources */,
 				BDB90AC025235650006D2D8A /* FeedsViewController.swift in Sources */,

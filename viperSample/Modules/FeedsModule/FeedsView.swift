@@ -10,9 +10,9 @@ import Foundation
 import UIKit
 
 protocol FeedsViperView: ViperView {
-    var feeds: FeedsResponse? { get set }
+    var feeds: [Feed] { get set }
     
-    func setFeeds(_ feeds: FeedsResponse)
+    func setFeeds(_ feeds: [Feed])
     func showError(_ error: Error)
 }
 
@@ -46,11 +46,11 @@ class FeedsView: UIView, FeedsViperView {
     }
     
     // MARK: - FeedsViperView
-    var feeds: FeedsResponse?
+    var feeds: [Feed] = []
     
-    func setFeeds(_ feeds: FeedsResponse) {
+    func setFeeds(_ feeds: [Feed]) {
         self.feeds = feeds
-        print(feeds)
+        self.tableView.reloadData()
     }
     
     func showError(_ error: Error) {
@@ -66,7 +66,7 @@ extension FeedsView: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return feeds.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -74,6 +74,7 @@ extension FeedsView: UITableViewDataSource {
         if cell == nil {
             cell = FeedTableViewCell(reuseIdentifier: FeedsView.TableViewCells.feed)
         }
+        cell?.setupCell(feed: feeds[indexPath.row])
         return cell ?? UITableViewCell()
     }
     
