@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  FeedsViewController.swift
 //  viperSample
 //
 //  Created by Oscar Mariano Cornejo Herrera on 9/29/20.
@@ -8,21 +8,15 @@
 
 import UIKit
 
-extension UIView: ViperView {
-    
-}
-
-class ViewController: ViperController<UIView> {
+class FeedsViewController: ViperController<FeedsView> {
     
     override func loadView() {
         super.loadView()
+        
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("viewDidLoad")
+        
     }
-
-
 }
-

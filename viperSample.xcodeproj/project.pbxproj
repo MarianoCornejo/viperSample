@@ -9,23 +9,29 @@
 /* Begin PBXBuildFile section */
 		BDB90AA2252350D1006D2D8A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB90AA1252350D1006D2D8A /* AppDelegate.swift */; };
 		BDB90AA4252350D1006D2D8A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB90AA3252350D1006D2D8A /* SceneDelegate.swift */; };
-		BDB90AA6252350D1006D2D8A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB90AA5252350D1006D2D8A /* ViewController.swift */; };
 		BDB90AAB252350D6006D2D8A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDB90AAA252350D6006D2D8A /* Assets.xcassets */; };
 		BDB90AAE252350D6006D2D8A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDB90AAC252350D6006D2D8A /* LaunchScreen.storyboard */; };
 		BDB90ABB252353C9006D2D8A /* ViperModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB90ABA252353C9006D2D8A /* ViperModule.swift */; };
 		BDB90ABD2523558F006D2D8A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDB90ABC2523558A006D2D8A /* Main.storyboard */; };
+		BDB90AC025235650006D2D8A /* FeedsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB90ABF25235650006D2D8A /* FeedsViewController.swift */; };
+		BDB90AC225235659006D2D8A /* FeedsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB90AC125235659006D2D8A /* FeedsView.swift */; };
+		BDB90AC4252356FB006D2D8A /* FeedsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB90AC3252356FB006D2D8A /* FeedsPresenter.swift */; };
+		BDB90AC62523571B006D2D8A /* FeedsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB90AC52523571B006D2D8A /* FeedsInteractor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		BDB90A9E252350D1006D2D8A /* viperSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = viperSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDB90AA1252350D1006D2D8A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BDB90AA3252350D1006D2D8A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		BDB90AA5252350D1006D2D8A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		BDB90AAA252350D6006D2D8A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BDB90AAD252350D6006D2D8A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BDB90AAF252350D7006D2D8A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BDB90ABA252353C9006D2D8A /* ViperModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViperModule.swift; sourceTree = "<group>"; };
 		BDB90ABC2523558A006D2D8A /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		BDB90ABF25235650006D2D8A /* FeedsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedsViewController.swift; sourceTree = "<group>"; };
+		BDB90AC125235659006D2D8A /* FeedsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedsView.swift; sourceTree = "<group>"; };
+		BDB90AC3252356FB006D2D8A /* FeedsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedsPresenter.swift; sourceTree = "<group>"; };
+		BDB90AC52523571B006D2D8A /* FeedsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedsInteractor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,7 +85,7 @@
 		BDB90AB6252352F9006D2D8A /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				BDB90AA5252350D1006D2D8A /* ViewController.swift */,
+				BDB90ABE25235630006D2D8A /* FeedsModule */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -108,6 +114,17 @@
 				BDB90AAF252350D7006D2D8A /* Info.plist */,
 			);
 			name = "Supporting files";
+			sourceTree = "<group>";
+		};
+		BDB90ABE25235630006D2D8A /* FeedsModule */ = {
+			isa = PBXGroup;
+			children = (
+				BDB90ABF25235650006D2D8A /* FeedsViewController.swift */,
+				BDB90AC125235659006D2D8A /* FeedsView.swift */,
+				BDB90AC3252356FB006D2D8A /* FeedsPresenter.swift */,
+				BDB90AC52523571B006D2D8A /* FeedsInteractor.swift */,
+			);
+			path = FeedsModule;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -181,8 +198,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BDB90AC4252356FB006D2D8A /* FeedsPresenter.swift in Sources */,
+				BDB90AC62523571B006D2D8A /* FeedsInteractor.swift in Sources */,
 				BDB90ABB252353C9006D2D8A /* ViperModule.swift in Sources */,
-				BDB90AA6252350D1006D2D8A /* ViewController.swift in Sources */,
+				BDB90AC025235650006D2D8A /* FeedsViewController.swift in Sources */,
+				BDB90AC225235659006D2D8A /* FeedsView.swift in Sources */,
 				BDB90AA2252350D1006D2D8A /* AppDelegate.swift in Sources */,
 				BDB90AA4252350D1006D2D8A /* SceneDelegate.swift in Sources */,
 			);
