@@ -8,7 +8,17 @@
 
 import Foundation
 
-class FeedsPresenter<V: FeedsView, I: FeedsInteractor, R: AppRouter>: BasePresenter<V, I, R> {
+class FeedsPresenter<V: FeedsViperView, I: FeedsInteractor, R: AppRouter>: BasePresenter<V, I, R> {
     
+    func getFeeds() {
+        interactor.getFeeds { (result) in
+            switch result {
+            case .success(let response):
+                self.view.setFeeds(response)
+            case .failure(let error):
+                self.view.showError(error)
+            }
+        }
+    }
     
 }

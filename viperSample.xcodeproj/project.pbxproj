@@ -17,6 +17,8 @@
 		BDB90AC225235659006D2D8A /* FeedsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB90AC125235659006D2D8A /* FeedsView.swift */; };
 		BDB90AC4252356FB006D2D8A /* FeedsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB90AC3252356FB006D2D8A /* FeedsPresenter.swift */; };
 		BDB90AC62523571B006D2D8A /* FeedsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB90AC52523571B006D2D8A /* FeedsInteractor.swift */; };
+		BDB90AC825235C04006D2D8A /* FeedsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB90AC725235C04006D2D8A /* FeedsResponse.swift */; };
+		BDB90ACA25235C3B006D2D8A /* FeedsEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB90AC925235C3B006D2D8A /* FeedsEndpoint.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		BDB90AC125235659006D2D8A /* FeedsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedsView.swift; sourceTree = "<group>"; };
 		BDB90AC3252356FB006D2D8A /* FeedsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedsPresenter.swift; sourceTree = "<group>"; };
 		BDB90AC52523571B006D2D8A /* FeedsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedsInteractor.swift; sourceTree = "<group>"; };
+		BDB90AC725235C04006D2D8A /* FeedsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedsResponse.swift; sourceTree = "<group>"; };
+		BDB90AC925235C3B006D2D8A /* FeedsEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedsEndpoint.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,12 +123,22 @@
 		BDB90ABE25235630006D2D8A /* FeedsModule */ = {
 			isa = PBXGroup;
 			children = (
+				BDB90ACB25235C41006D2D8A /* Networking */,
 				BDB90ABF25235650006D2D8A /* FeedsViewController.swift */,
 				BDB90AC125235659006D2D8A /* FeedsView.swift */,
 				BDB90AC3252356FB006D2D8A /* FeedsPresenter.swift */,
 				BDB90AC52523571B006D2D8A /* FeedsInteractor.swift */,
 			);
 			path = FeedsModule;
+			sourceTree = "<group>";
+		};
+		BDB90ACB25235C41006D2D8A /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				BDB90AC725235C04006D2D8A /* FeedsResponse.swift */,
+				BDB90AC925235C3B006D2D8A /* FeedsEndpoint.swift */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -202,9 +216,11 @@
 				BDB90AC62523571B006D2D8A /* FeedsInteractor.swift in Sources */,
 				BDB90ABB252353C9006D2D8A /* ViperModule.swift in Sources */,
 				BDB90AC025235650006D2D8A /* FeedsViewController.swift in Sources */,
+				BDB90AC825235C04006D2D8A /* FeedsResponse.swift in Sources */,
 				BDB90AC225235659006D2D8A /* FeedsView.swift in Sources */,
 				BDB90AA2252350D1006D2D8A /* AppDelegate.swift in Sources */,
 				BDB90AA4252350D1006D2D8A /* SceneDelegate.swift in Sources */,
+				BDB90ACA25235C3B006D2D8A /* FeedsEndpoint.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

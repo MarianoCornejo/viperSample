@@ -9,13 +9,38 @@
 import Foundation
 import UIKit
 
-class FeedsView: UIView, ViperView {
+protocol FeedsViperView: ViperView {
+    var feeds: FeedsResponse? { get set }
     
-    private lazy var presenter: FeedsPresenter = {
-        let client = URLSessionClient()
-        return FeedsPresenter(view: FeedsView(), interactor: FeedsInteractor(client: client), router: AppRouter())
-    }()
+    func setFeeds(_ feeds: FeedsResponse)
+    func showError(_ error: Error)
+}
+
+class FeedsView: UIView, FeedsViperView {
     
+    // MARK: - Properties
+    var feeds: FeedsResponse?
     
+    private lazy var presenter: FeedsPresenter<FeedsView, FeedsInteractor, AppRouter> = FeedsPresenter(view: self, interactor: FeedsInteractor(client: URLSessionClient()), router: AppRouter())
+    
+    // MARK: - Initializers
+    init() {
+        super.init(frame: .zero)
+        presenter.getFeeds()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: - Internal
+    func setFeeds(_ feeds: FeedsResponse) {
+        self.feeds = feeds
+        print(feeds)
+    }
+    
+    func showError(_ error: Error) {
+        print(error)
+    }
     
 }

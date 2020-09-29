@@ -9,6 +9,8 @@
 import Foundation
 import UIKit
 
+
+// MARK: - Presenter
 protocol Presenter {
     
     associatedtype I: NetworkInteractor
@@ -35,6 +37,7 @@ class BasePresenter<V: ViperView, I: NetworkInteractor, R: Router>: Presenter {
     }
 }
 
+// MARK: - NetworkInteractor
 protocol NetworkInteractor {
     var client: NetworkClient { get set }
     
@@ -70,6 +73,7 @@ extension NetworkInteractor {
     }
 }
 
+// MARK: - Endpoint, NetworkClient, URLSessionClient
 protocol Endpoint {
     var url: String { get }
     var httpMethod: String { get }
@@ -98,6 +102,7 @@ class URLSessionClient: NetworkClient {
     }
 }
 
+// MARK: - Router
 protocol Router {
     
 }
@@ -106,6 +111,7 @@ class AppRouter: Router {
     
 }
 
+// MARK: - ViperModule
 protocol ViperModule {
     
     associatedtype V: ViperView
@@ -115,10 +121,12 @@ protocol ViperModule {
     func attach(view: V)
 }
 
+// MARK: - ViperView
 protocol ViperView: class {
     
 }
 
+// MARK: - ViperController
 class ViperController<V: ViperView & UIView>: UIViewController, ViperModule {
     
     var viperView: V?
