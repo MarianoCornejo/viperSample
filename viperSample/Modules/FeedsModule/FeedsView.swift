@@ -22,6 +22,7 @@ class FeedsView: UIView, FeedsViperView {
     // MARK: - Properties
     private lazy var presenter: FeedsPresenter<FeedsView, FeedsInteractor, AppRouter> = FeedsPresenter(view: self, interactor: FeedsInteractor(client: URLSessionClient()), router: AppRouter())
     private var tableView: UITableView = UITableView(frame: .zero)
+    private var refreshControl: UIRefreshControl = UIRefreshControl()
     private var activityIndicatorView: UIActivityIndicatorView = UIActivityIndicatorView(frame: .zero)
     
     struct TableViewCells {
@@ -33,6 +34,7 @@ class FeedsView: UIView, FeedsViperView {
         super.init(frame: .zero)
         setupActivityIndicator()
         setupTableView()
+        setupRefreshControll()
         presenter.getFeeds()
     }
     
@@ -61,12 +63,22 @@ class FeedsView: UIView, FeedsViperView {
         tableView.isHidden = true
     }
     
+    private func setupRefreshControll() {
+        refreshControl.addTarget(self, action: #selector(refreshFeeds), for: .valueChanged)
+        tableView.refreshControl = refreshControl
+    }
+    
+    @objc private func refreshFeeds() {
+        presenter.getFeeds()
+    }
+    
     // MARK: - FeedsViperView
     var feeds: [Feed] = []
     
     func setFeeds(_ feeds: [Feed]) {
         self.feeds = feeds
-        self.tableView.reloadData()
+        refreshControl.endRefreshing()
+        tableView.reloadData()
     }
     
     func showError(_ error: Error) {
