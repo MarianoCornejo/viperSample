@@ -22,6 +22,10 @@ class FeedsView: UIView, FeedsViperView {
     private lazy var presenter: FeedsPresenter<FeedsView, FeedsInteractor, AppRouter> = FeedsPresenter(view: self, interactor: FeedsInteractor(client: URLSessionClient()), router: AppRouter())
     private var tableView: UITableView = UITableView(frame: .zero)
     
+    struct TableViewCells {
+        static let feed = "FeedTableViewCell"
+    }
+    
     // MARK: - Initializers
     init() {
         super.init(frame: .zero)
@@ -37,10 +41,7 @@ class FeedsView: UIView, FeedsViperView {
     private func setupTableView() {
         addSubview(tableView)
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
-        tableView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
-        tableView.topAnchor.constraint(equalTo: topAnchor).isActive = true
-        tableView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        tableView.expandTofitLayoutFromView(self)
         tableView.dataSource = self
     }
     
@@ -58,6 +59,7 @@ class FeedsView: UIView, FeedsViperView {
     
 }
 
+// MARK: - UITableViewDataSource
 extension FeedsView: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -68,9 +70,9 @@ extension FeedsView: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCell(withIdentifier: "cell")
+        var cell = tableView.dequeueReusableCell(withIdentifier: FeedsView.TableViewCells.feed) as? FeedTableViewCell
         if cell == nil {
-            cell = UITableViewCell(style: .default, reuseIdentifier: "cell")
+            cell = FeedTableViewCell(reuseIdentifier: FeedsView.TableViewCells.feed)
         }
         return cell ?? UITableViewCell()
     }

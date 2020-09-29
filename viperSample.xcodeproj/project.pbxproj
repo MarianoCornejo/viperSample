@@ -19,6 +19,8 @@
 		BDB90AC62523571B006D2D8A /* FeedsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB90AC52523571B006D2D8A /* FeedsInteractor.swift */; };
 		BDB90AC825235C04006D2D8A /* FeedsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB90AC725235C04006D2D8A /* FeedsResponse.swift */; };
 		BDB90ACA25235C3B006D2D8A /* FeedsEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB90AC925235C3B006D2D8A /* FeedsEndpoint.swift */; };
+		BDB90ACD25236369006D2D8A /* FeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB90ACC25236369006D2D8A /* FeedTableViewCell.swift */; };
+		BDB90ACF252365E6006D2D8A /* UIView+AutoLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB90ACE252365E6006D2D8A /* UIView+AutoLayout.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,8 @@
 		BDB90AC52523571B006D2D8A /* FeedsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedsInteractor.swift; sourceTree = "<group>"; };
 		BDB90AC725235C04006D2D8A /* FeedsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedsResponse.swift; sourceTree = "<group>"; };
 		BDB90AC925235C3B006D2D8A /* FeedsEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedsEndpoint.swift; sourceTree = "<group>"; };
+		BDB90ACC25236369006D2D8A /* FeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTableViewCell.swift; sourceTree = "<group>"; };
+		BDB90ACE252365E6006D2D8A /* UIView+AutoLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+AutoLayout.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				BDB90ABA252353C9006D2D8A /* ViperModule.swift */,
+				BDB90ACE252365E6006D2D8A /* UIView+AutoLayout.swift */,
 			);
 			path = Infrastructure;
 			sourceTree = "<group>";
@@ -128,6 +133,7 @@
 				BDB90AC125235659006D2D8A /* FeedsView.swift */,
 				BDB90AC3252356FB006D2D8A /* FeedsPresenter.swift */,
 				BDB90AC52523571B006D2D8A /* FeedsInteractor.swift */,
+				BDB90ACC25236369006D2D8A /* FeedTableViewCell.swift */,
 			);
 			path = FeedsModule;
 			sourceTree = "<group>";
@@ -221,6 +227,8 @@
 				BDB90AA2252350D1006D2D8A /* AppDelegate.swift in Sources */,
 				BDB90AA4252350D1006D2D8A /* SceneDelegate.swift in Sources */,
 				BDB90ACA25235C3B006D2D8A /* FeedsEndpoint.swift in Sources */,
+				BDB90ACF252365E6006D2D8A /* UIView+AutoLayout.swift in Sources */,
+				BDB90ACD25236369006D2D8A /* FeedTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
