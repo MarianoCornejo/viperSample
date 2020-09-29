@@ -12,13 +12,24 @@ class FeedsPresenter<V: FeedsViperView, I: FeedsInteractor, R: AppRouter>: BaseP
     
     func getFeeds() {
         view.showLoadingFeedback(show: true)
-        interactor.getFeeds { (result) in
+        interactor.getFeeds(after: "") { (result) in
             switch result {
-            case .success(let response):
+            case .success(let feed):
                 self.view.showLoadingFeedback(show: false)
-                self.view.setFeeds(response)
+                self.view.setFeed(feed)
             case .failure(let error):
                 self.view.showLoadingFeedback(show: false)
+                self.view.showError(error)
+            }
+        }
+    }
+    
+    func getNextFeeds(feed: Feed) {
+        interactor.getFeeds(after: feed.after) { (result) in
+            switch result {
+            case .success(let feed):
+                self.view.setNextPageFeed(feed)
+            case .failure(let error):
                 self.view.showError(error)
             }
         }

@@ -9,6 +9,35 @@
 import Foundation
 import UIKit
 
+class LoadingTableViewCell: UITableViewCell {
+    private lazy var activityIndicatorView: UIActivityIndicatorView = {
+        let indicator = UIActivityIndicatorView()
+        indicator.style = .medium
+        indicator.tintColor = .black
+        indicator.startAnimating()
+        indicator.translatesAutoresizingMaskIntoConstraints = false
+        return indicator
+    }()
+    
+    //MARK: - Initializer
+    init(reuseIdentifier: String) {
+        super.init(style: .default, reuseIdentifier: reuseIdentifier)
+        setupView()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    //MARK: - Private
+    private func setupView() {
+        contentView.addSubview(activityIndicatorView)
+        activityIndicatorView.centerInLayout(inParentView: contentView)
+//        activityIndicatorView.constraintToSize(CGSize(width: 30, height: 30))
+    }
+    
+}
+
 class FeedTableViewCell: UITableViewCell {
     
     //MARK: - Properties
@@ -59,12 +88,12 @@ class FeedTableViewCell: UITableViewCell {
     }
     
     // MARK: - Internal
-    func setupCell(feed: Feed) {
-        let date = DateFormatterFactory.shared.relativeDateTimeFormatter.localizedString(for: feed.entryDate, relativeTo: Date())
-        authorLabel.text = "Posted by \(feed.author)"
+    func setupCell(feedItem: Feed.FeedItem) {
+        let date = DateFormatterFactory.shared.relativeDateTimeFormatter.localizedString(for: feedItem.entryDate, relativeTo: Date())
+        authorLabel.text = "Posted by \(feedItem.author)"
         entryDateLabel.text = date
-        titleLabel.text = feed.title
-        numberOfCommentsLabel.text = "\(feed.numberOfComments) Comments"
+        titleLabel.text = feedItem.title
+        numberOfCommentsLabel.text = "\(feedItem.numberOfComments) Comments"
     }
     
     //MARK: - Private

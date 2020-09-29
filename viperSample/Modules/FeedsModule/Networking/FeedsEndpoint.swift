@@ -11,13 +11,17 @@ import Foundation
 enum FeedsEndpoint: Endpoint {
     
     var url: String {
-        return "https://www.reddit.com/r/all/top/.json?t=all&limit=10"
+        switch self {
+        case .feeds(let after):
+            let queryString = after.isEmpty ? "" : "&after=\(after)"
+            return "https://www.reddit.com/r/all/top/.json?t=all&limit=10\(queryString)"
+        }
     }
     
     var httpMethod: String {
         return "GET"
     }
     
-    case feeds
+    case feeds(after: String)
     
 }

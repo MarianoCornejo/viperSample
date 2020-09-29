@@ -9,15 +9,30 @@
 import Foundation
 
 struct Feed {
-    var author: String
-    var title: String
-    var thumbnailUrl: String
-    var entryDate: Date
-    var numberOfComments: Int
-    var unreadStatus: String
+    var before: String = ""
+    var after: String = ""
+    var feeds: [FeedItem] = []
+    
+    struct FeedItem {
+        var author: String
+        var title: String
+        var thumbnailUrl: String
+        var entryDate: Date
+        var numberOfComments: Int
+        var unreadStatus: String
+    }
 }
 
 extension Feed {
+    init(response: FeedsResponse) {
+        before = response.data.before ?? ""
+        after = response.data.after
+        feeds = response.data.children.map({ FeedItem(childData: $0.data) })
+    }
+    
+}
+
+extension Feed.FeedItem {
     init(childData: ChildData) {
         author = childData.author
         title = childData.title

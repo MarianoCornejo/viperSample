@@ -10,11 +10,12 @@ import Foundation
 import UIKit
 
 protocol FeedsViperView: ViperView {
-    var feeds: [Feed] { get set }
+    var feed: Feed? { get set }
     
-    func setFeeds(_ feeds: [Feed])
+    func setFeed(_ feed: Feed)
     func showError(_ error: Error)
     func showLoadingFeedback(show: Bool)
+    func setNextPageFeed(_ feed: Feed)
 }
 
 class FeedsView: UIView, FeedsViperView {
@@ -27,6 +28,7 @@ class FeedsView: UIView, FeedsViperView {
     
     struct TableViewCells {
         static let feed = "FeedTableViewCell"
+        static let loading = "LoadingTableViewCell"
     }
     
     // MARK: - Initializers
@@ -60,6 +62,7 @@ class FeedsView: UIView, FeedsViperView {
         tableView.rowHeight = UITableView.automaticDimension
         tableView.expandTofitLayoutFromView(self)
         tableView.dataSource = self
+        tableView.delegate = self
         tableView.isHidden = true
     }
     
@@ -73,10 +76,10 @@ class FeedsView: UIView, FeedsViperView {
     }
     
     // MARK: - FeedsViperView
-    var feeds: [Feed] = []
+    var feed: Feed?
     
-    func setFeeds(_ feeds: [Feed]) {
-        self.feeds = feeds
+    func setFeed(_ feed: Feed) {
+        self.feed = feed
         refreshControl.endRefreshing()
         tableView.reloadData()
     }
@@ -94,6 +97,13 @@ class FeedsView: UIView, FeedsViperView {
         }
     }
     
+    func setNextPageFeed(_ feed: Feed) {
+        isLoadingMoreData = false
+        self.feed?.after = feed.after
+        self.feed?.feeds.append(contentsOf: feed.feeds)
+        tableView.reloadData()
+    }
+    var isLoadingMoreData = false
 }
 
 // MARK: - UITableViewDataSource
@@ -103,16 +113,51 @@ extension FeedsView: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return feeds.count
+        if let count = feed?.feeds.count {
+            if isLoadingMoreData {
+                return count + 1
+            }
+            return count
+        }
+        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let count = feed?.feeds.count else {
+            return UITableViewCell()
+        }
+        
+        if indexPath.row == count && isLoadingMoreData {
+            var cell = tableView.dequeueReusableCell(withIdentifier: FeedsView.TableViewCells.loading) as? LoadingTableViewCell
+            if cell == nil {
+                cell = LoadingTableViewCell(reuseIdentifier: FeedsView.TableViewCells.loading)
+            }
+            return cell ?? UITableViewCell()
+        }
+        
         var cell = tableView.dequeueReusableCell(withIdentifier: FeedsView.TableViewCells.feed) as? FeedTableViewCell
         if cell == nil {
             cell = FeedTableViewCell(reuseIdentifier: FeedsView.TableViewCells.feed)
         }
-        cell?.setupCell(feed: feeds[indexPath.row])
+        if let feedItem = feed?.feeds[indexPath.row] {
+            cell?.setupCell(feedItem: feedItem)
+        }
         return cell ?? UITableViewCell()
     }
     
+}
+
+extension FeedsView: UITableViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let endOffset = scrollView.contentOffset.y + scrollView.bounds.size.height
+        if endOffset >= scrollView.contentSize.height {
+            if let count = feed?.feeds.count, isLoadingMoreData == false {
+                isLoadingMoreData = true
+                tableView.insertRows(at: [IndexPath(item: count, section: 0)], with: .fade)
+                if let feed = feed {
+                    presenter.getNextFeeds(feed: feed)
+                }
+            }
+        }
+    }
 }
