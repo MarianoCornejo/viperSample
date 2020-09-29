@@ -23,6 +23,7 @@
 		BDB90ACF252365E6006D2D8A /* UIView+AutoLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB90ACE252365E6006D2D8A /* UIView+AutoLayout.swift */; };
 		BDB90AD125236E32006D2D8A /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB90AD025236E32006D2D8A /* Feed.swift */; };
 		BDB90AD325237819006D2D8A /* DateFormatterFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB90AD225237819006D2D8A /* DateFormatterFactory.swift */; };
+		BDB90AD52523CDD8006D2D8A /* EasyCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB90AD42523CDD7006D2D8A /* EasyCache.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		BDB90ACE252365E6006D2D8A /* UIView+AutoLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+AutoLayout.swift"; sourceTree = "<group>"; };
 		BDB90AD025236E32006D2D8A /* Feed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
 		BDB90AD225237819006D2D8A /* DateFormatterFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterFactory.swift; sourceTree = "<group>"; };
+		BDB90AD42523CDD7006D2D8A /* EasyCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasyCache.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +110,7 @@
 				BDB90ABA252353C9006D2D8A /* ViperModule.swift */,
 				BDB90ACE252365E6006D2D8A /* UIView+AutoLayout.swift */,
 				BDB90AD225237819006D2D8A /* DateFormatterFactory.swift */,
+				BDB90AD42523CDD7006D2D8A /* EasyCache.swift */,
 			);
 			path = Infrastructure;
 			sourceTree = "<group>";
@@ -230,6 +233,7 @@
 				BDB90AD325237819006D2D8A /* DateFormatterFactory.swift in Sources */,
 				BDB90ABB252353C9006D2D8A /* ViperModule.swift in Sources */,
 				BDB90AC025235650006D2D8A /* FeedsViewController.swift in Sources */,
+				BDB90AD52523CDD8006D2D8A /* EasyCache.swift in Sources */,
 				BDB90AC825235C04006D2D8A /* FeedsResponse.swift in Sources */,
 				BDB90AC225235659006D2D8A /* FeedsView.swift in Sources */,
 				BDB90AA2252350D1006D2D8A /* AppDelegate.swift in Sources */,

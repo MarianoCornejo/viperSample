@@ -34,7 +34,6 @@ class LoadingTableViewCell: UITableViewCell {
         backgroundColor = .black
         contentView.addSubview(activityIndicatorView)
         activityIndicatorView.centerInLayout(inParentView: contentView)
-//        activityIndicatorView.constraintToSize(CGSize(width: 30, height: 30))
     }
     
 }
@@ -96,6 +95,23 @@ class FeedTableViewCell: UITableViewCell {
         entryDateLabel.text = date
         titleLabel.text = feedItem.title
         numberOfCommentsLabel.text = "\(feedItem.numberOfComments) Comments"
+        
+        if let data = EasyCache.shared.getData(fromKey: feedItem.author) {
+            thumbnailImageView.image = UIImage(data: data)
+            return
+        }
+        
+        if let url = URL(string: feedItem.thumbnailUrl) {
+            DispatchQueue.global(qos: .background).async {
+                if let data  = try? Data(contentsOf: url) {
+                    EasyCache.shared.cache(data: data, key: feedItem.author)
+                    DispatchQueue.main.async { [weak self] in
+                        self?.thumbnailImageView.image = UIImage(data: data)
+                    }
+                }
+            }
+        }
+        
     }
     
     //MARK: - Private

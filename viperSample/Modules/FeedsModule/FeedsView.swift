@@ -63,6 +63,7 @@ class FeedsView: UIView, FeedsViperView {
         tableView.rowHeight = UITableView.automaticDimension
         tableView.expandTofitLayoutFromView(self)
         tableView.backgroundColor = .black
+        tableView.allowsSelection = false
         tableView.dataSource = self
         tableView.delegate = self
         tableView.isHidden = true
