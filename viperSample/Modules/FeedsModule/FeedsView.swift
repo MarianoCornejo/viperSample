@@ -19,13 +19,13 @@ protocol FeedsViperView: ViperView {
 class FeedsView: UIView, FeedsViperView {
     
     // MARK: - Properties
-    var feeds: FeedsResponse?
-    
     private lazy var presenter: FeedsPresenter<FeedsView, FeedsInteractor, AppRouter> = FeedsPresenter(view: self, interactor: FeedsInteractor(client: URLSessionClient()), router: AppRouter())
+    private var tableView: UITableView = UITableView(frame: .zero)
     
     // MARK: - Initializers
     init() {
         super.init(frame: .zero)
+        setupTableView()
         presenter.getFeeds()
     }
     
@@ -33,7 +33,20 @@ class FeedsView: UIView, FeedsViperView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: - Internal
+    // MARK: - Private
+    private func setupTableView() {
+        addSubview(tableView)
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+        tableView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+        tableView.topAnchor.constraint(equalTo: topAnchor).isActive = true
+        tableView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        tableView.dataSource = self
+    }
+    
+    // MARK: - FeedsViperView
+    var feeds: FeedsResponse?
+    
     func setFeeds(_ feeds: FeedsResponse) {
         self.feeds = feeds
         print(feeds)
@@ -41,6 +54,25 @@ class FeedsView: UIView, FeedsViperView {
     
     func showError(_ error: Error) {
         print(error)
+    }
+    
+}
+
+extension FeedsView: UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        var cell = tableView.dequeueReusableCell(withIdentifier: "cell")
+        if cell == nil {
+            cell = UITableViewCell(style: .default, reuseIdentifier: "cell")
+        }
+        return cell ?? UITableViewCell()
     }
     
 }
