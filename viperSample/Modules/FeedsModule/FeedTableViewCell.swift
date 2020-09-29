@@ -31,7 +31,10 @@ class FeedTableViewCell: UITableViewCell {
     
     // MARK: - Internal
     func setupCell(feed: Feed) {
-        authorLabel.text = feed.author
+        
+        let date = DateFormatterFactory.shared.relativeDateTimeFormatter.localizedString(for: feed.entryDate, relativeTo: Date())
+        authorLabel.text = "Posted by \(feed.author)"
+        entryDateLabel.text = date
     }
     
     //MARK: - Private
@@ -55,7 +58,17 @@ class FeedTableViewCell: UITableViewCell {
         thumbnailImageView.pinToCorner(.topLeft(leftMargin: 10, topMargin: 10), inParentView: self)
         
         authorLabel.leadingAnchor.constraint(equalTo: thumbnailImageView.trailingAnchor, constant: 10).isActive = true
-        authorLabel.expandToSides([.top(margin: 10), .right(margin: 10)], inParentView: self)
-        authorLabel.text = "adfas"
+        authorLabel.expandToSides([.top(margin: 10)], inParentView: self)
+        authorLabel.setContentHuggingPriority(.defaultHigh, for: .horizontal)
+        authorLabel.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
+        authorLabel.font = UIFont.systemFont(ofSize: 14, weight: .regular)
+        authorLabel.textColor = .gray
+        
+        entryDateLabel.leadingAnchor.constraint(equalTo: authorLabel.trailingAnchor, constant: 10).isActive = true
+        entryDateLabel.expandToSides([.top(margin: 10),.right(margin: 10)], inParentView: self)
+        entryDateLabel.setContentHuggingPriority(.defaultLow, for: .horizontal)
+        entryDateLabel.setContentCompressionResistancePriority(.defaultHigh, for: .horizontal)
+        entryDateLabel.font = UIFont.systemFont(ofSize: 14, weight: .regular)
+        entryDateLabel.textColor = .gray
     }
 }

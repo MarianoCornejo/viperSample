@@ -22,6 +22,7 @@
 		BDB90ACD25236369006D2D8A /* FeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB90ACC25236369006D2D8A /* FeedTableViewCell.swift */; };
 		BDB90ACF252365E6006D2D8A /* UIView+AutoLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB90ACE252365E6006D2D8A /* UIView+AutoLayout.swift */; };
 		BDB90AD125236E32006D2D8A /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB90AD025236E32006D2D8A /* Feed.swift */; };
+		BDB90AD325237819006D2D8A /* DateFormatterFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB90AD225237819006D2D8A /* DateFormatterFactory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		BDB90ACC25236369006D2D8A /* FeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTableViewCell.swift; sourceTree = "<group>"; };
 		BDB90ACE252365E6006D2D8A /* UIView+AutoLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+AutoLayout.swift"; sourceTree = "<group>"; };
 		BDB90AD025236E32006D2D8A /* Feed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
+		BDB90AD225237819006D2D8A /* DateFormatterFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 			children = (
 				BDB90ABA252353C9006D2D8A /* ViperModule.swift */,
 				BDB90ACE252365E6006D2D8A /* UIView+AutoLayout.swift */,
+				BDB90AD225237819006D2D8A /* DateFormatterFactory.swift */,
 			);
 			path = Infrastructure;
 			sourceTree = "<group>";
@@ -224,6 +227,7 @@
 				BDB90AC4252356FB006D2D8A /* FeedsPresenter.swift in Sources */,
 				BDB90AD125236E32006D2D8A /* Feed.swift in Sources */,
 				BDB90AC62523571B006D2D8A /* FeedsInteractor.swift in Sources */,
+				BDB90AD325237819006D2D8A /* DateFormatterFactory.swift in Sources */,
 				BDB90ABB252353C9006D2D8A /* ViperModule.swift in Sources */,
 				BDB90AC025235650006D2D8A /* FeedsViewController.swift in Sources */,
 				BDB90AC825235C04006D2D8A /* FeedsResponse.swift in Sources */,
