@@ -8,11 +8,19 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+extension UIView: ViperView {
+    
+}
+
+class ViewController: ViperController<UIView> {
+    
+    override func loadView() {
+        super.loadView()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        print("viewDidLoad")
     }
 
 

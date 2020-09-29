@@ -10,9 +10,10 @@
 		BDB90AA2252350D1006D2D8A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB90AA1252350D1006D2D8A /* AppDelegate.swift */; };
 		BDB90AA4252350D1006D2D8A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB90AA3252350D1006D2D8A /* SceneDelegate.swift */; };
 		BDB90AA6252350D1006D2D8A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB90AA5252350D1006D2D8A /* ViewController.swift */; };
-		BDB90AA9252350D1006D2D8A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDB90AA7252350D1006D2D8A /* Main.storyboard */; };
 		BDB90AAB252350D6006D2D8A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDB90AAA252350D6006D2D8A /* Assets.xcassets */; };
 		BDB90AAE252350D6006D2D8A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDB90AAC252350D6006D2D8A /* LaunchScreen.storyboard */; };
+		BDB90ABB252353C9006D2D8A /* ViperModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB90ABA252353C9006D2D8A /* ViperModule.swift */; };
+		BDB90ABD2523558F006D2D8A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDB90ABC2523558A006D2D8A /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,10 +21,11 @@
 		BDB90AA1252350D1006D2D8A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BDB90AA3252350D1006D2D8A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		BDB90AA5252350D1006D2D8A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		BDB90AA8252350D1006D2D8A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BDB90AAA252350D6006D2D8A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BDB90AAD252350D6006D2D8A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BDB90AAF252350D7006D2D8A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BDB90ABA252353C9006D2D8A /* ViperModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViperModule.swift; sourceTree = "<group>"; };
+		BDB90ABC2523558A006D2D8A /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,7 +60,6 @@
 			children = (
 				BDB90AB5252352CE006D2D8A /* AppAndSceneDelegate */,
 				BDB90AB725235302006D2D8A /* Infrastructure */,
-				BDB90AA7252350D1006D2D8A /* Main.storyboard */,
 				BDB90AB6252352F9006D2D8A /* Modules */,
 				BDB90AB825235319006D2D8A /* Resources */,
 				BDB90AB92523532F006D2D8A /* Supporting files */,
@@ -86,6 +87,7 @@
 		BDB90AB725235302006D2D8A /* Infrastructure */ = {
 			isa = PBXGroup;
 			children = (
+				BDB90ABA252353C9006D2D8A /* ViperModule.swift */,
 			);
 			path = Infrastructure;
 			sourceTree = "<group>";
@@ -102,6 +104,7 @@
 		BDB90AB92523532F006D2D8A /* Supporting files */ = {
 			isa = PBXGroup;
 			children = (
+				BDB90ABC2523558A006D2D8A /* Main.storyboard */,
 				BDB90AAF252350D7006D2D8A /* Info.plist */,
 			);
 			name = "Supporting files";
@@ -165,9 +168,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BDB90ABD2523558F006D2D8A /* Main.storyboard in Resources */,
 				BDB90AAE252350D6006D2D8A /* LaunchScreen.storyboard in Resources */,
 				BDB90AAB252350D6006D2D8A /* Assets.xcassets in Resources */,
-				BDB90AA9252350D1006D2D8A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -178,6 +181,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BDB90ABB252353C9006D2D8A /* ViperModule.swift in Sources */,
 				BDB90AA6252350D1006D2D8A /* ViewController.swift in Sources */,
 				BDB90AA2252350D1006D2D8A /* AppDelegate.swift in Sources */,
 				BDB90AA4252350D1006D2D8A /* SceneDelegate.swift in Sources */,
@@ -187,14 +191,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		BDB90AA7252350D1006D2D8A /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				BDB90AA8252350D1006D2D8A /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		BDB90AAC252350D6006D2D8A /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -334,7 +330,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = marianoCornejo.viperSample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -352,7 +348,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = marianoCornejo.viperSample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
